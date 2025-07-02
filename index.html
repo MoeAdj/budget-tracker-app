@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Budget Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Budget Tracker</h1>
+
+    <div id="auth-forms">
+      <div id="signup-form">
+        <h2>Sign Up</h2>
+        <input type="text" id="signup-username" placeholder="Username" required />
+        <input type="password" id="signup-password" placeholder="Password" required />
+        <button id="signup-btn">Sign Up</button>
+        <p>Already have an account? <button id="show-login">Log In</button></p>
+        <p id="signup-message" class="message"></p>
+      </div>
+
+      <div id="login-form" style="display:none">
+        <h2>Log In</h2>
+        <input type="text" id="login-username" placeholder="Username" required />
+        <input type="password" id="login-password" placeholder="Password" required />
+        <button id="login-btn">Log In</button>
+        <p>Don't have an account? <button id="show-signup">Sign Up</button></p>
+        <p id="login-message" class="message"></p>
+      </div>
+    </div>
+
+    <div id="app" style="display:none">
+      <button id="logout-btn">Log Out</button>
+      <div id="user-info"></div>
+      <button id="dark-mode-toggle">Toggle Dark Mode</button>
+      <div class="balance">Balance: <span id="balance">$0.00</span></div>
+
+      <form id="transaction-form">
+        <input type="text" id="desc" placeholder="Description" required />
+        <input type="number" id="amount" placeholder="Amount" required />
+        <select id="category">
+          <option value="food">Food</option>
+          <option value="rent">Rent</option>
+          <option value="utilities">Utilities</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="other">Other</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+
+      <div class="filters">
+        <label>Filter by category:</label>
+        <select id="filter-category">
+          <option value="all">All</option>
+          <option value="food">Food</option>
+          <option value="rent">Rent</option>
+          <option value="utilities">Utilities</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="filters">
+        <label>Set Monthly Budgets:</label>
+        <select id="budget-category">
+          <option value="food">Food</option>
+          <option value="rent">Rent</option>
+          <option value="utilities">Utilities</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="number" id="budget-amount" placeholder="Budget $" />
+        <button id="set-budget-btn">Set Budget</button>
+      </div>
+
+      <div id="budget-alert" class="message"></div>
+
+      <ul id="transaction-list"></ul>
+
+      <canvas id="spending-chart" width="400" height="200"></canvas>
+
+      <div id="insights" class="insights-panel">
+        <h2>Spending Insights</h2>
+        <p id="top-category"></p>
+        <p id="total-expense"></p>
+        <p id="saving-tip"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
